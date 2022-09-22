@@ -43,7 +43,6 @@ $ npm run docker:start
 $ npm run docker:stop
 
 
-```bash
 # development
 $ npm run start
 
