@@ -34,14 +34,12 @@ $ npm install
 
 ## Running the app
 
-`````bash
+```bash
 # start docker database
 $ npm run docker:start
 
-````bash
 # stop docker database
 $ npm run docker:stop
-
 
 # development
 $ npm run start
@@ -51,7 +49,7 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
-`````
+```
 
 ## Test
 
