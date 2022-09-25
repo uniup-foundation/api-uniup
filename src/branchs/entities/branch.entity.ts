@@ -6,5 +6,5 @@ export class Branch {
   id: number;
 
   @Column()
-  firstName: string;
+  name: string;
 }
