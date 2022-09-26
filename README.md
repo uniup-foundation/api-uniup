@@ -35,11 +35,9 @@ $ npm install
 ## Running the app
 
 ```bash
-# start docker database
-$ npm run docker:start
+# start docker in developement
+$ npm run docker-compose:dev
 
-# stop docker database
-$ npm run docker:stop
 
 # development
 $ npm run start
@@ -66,7 +64,7 @@ $ npm run test:cov
 
 ## enviroment variables
 
-to run the application with enviroments variable configuration you must create an env file for developement purpose named `.dev.env`, example of the structure of the files is in the file `example.env`
+to run the application with enviroments variable configuration you must create an env file for developement purpose named `stage.dev.env`, example of the structure of the files is in the file `stage.example.env`
 
 ## Support
 
