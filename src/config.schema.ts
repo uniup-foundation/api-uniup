@@ -8,4 +8,9 @@ export const configValidationSchema = Joi.object({
   DB_USERNAME: Joi.string().required(),
   DB_PASSWORD: Joi.string().required(),
   DB_DATABASE: Joi.string().required(),
+  PGADMIN_DEFAULT_EMAIL: Joi.string()
+    .email({ tlds: { allow: false } })
+    .required(),
+  PGADMIN_DEFAULT_PASSWORD: Joi.string().required(),
+  PGADMIN_PORT: Joi.number().default(5050).required(),
 });
