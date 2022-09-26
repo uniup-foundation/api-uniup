@@ -66,6 +66,20 @@ $ npm run test:cov
 
 to run the application with enviroments variable configuration you must create an env file for developement purpose named `stage.dev.env`, example of the structure of the files is in the file `stage.example.env`
 
+#### variable example
+
+```bash
+PORT=
+DB_HOST=
+DB_PORT=
+DB_USERNAME=
+DB_PASSWORD=
+DB_DATABASE=
+PGADMIN_DEFAULT_EMAIL=
+PGADMIN_DEFAULT_PASSWORD=
+PGADMIN_PORT=
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
