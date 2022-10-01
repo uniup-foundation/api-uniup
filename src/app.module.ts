@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { BranchsModule } from './branchs/branchs.module';
 import { configValidationSchema } from './config.schema';
+import { AuthzModule } from './authz/authz.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { configValidationSchema } from './config.schema';
       },
     }),
     BranchsModule,
+    AuthzModule,
   ],
   controllers: [AppController],
   providers: [AppService],
