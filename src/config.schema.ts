@@ -13,4 +13,6 @@ export const configValidationSchema = Joi.object({
     .required(),
   PGADMIN_DEFAULT_PASSWORD: Joi.string().required(),
   PGADMIN_PORT: Joi.number().default(5050).required(),
+  AUTH0_ISSUER_URL: Joi.string().required(),
+  AUTH0_AUDIENCE: Joi.string().required(),
 });
