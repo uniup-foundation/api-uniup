@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateBranchDto } from './dto/create-branch.dto';
@@ -20,15 +20,29 @@ export class BranchsService {
     return this.branchsRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} branch`;
+  async findOne(id: number) {
+    const branch = await this.branchsRepository.findOne({
+      where: { id: +id },
+    });
+    if (!branch) {
+      throw new NotFoundException(`branch #${id} not found`);
+    }
+    return branch;
   }
 
-  update(id: number, updateBranchDto: UpdateBranchDto) {
-    return `This action updates a #${id} branch`;
+  async update(id: number, updateBranchDto: UpdateBranchDto) {
+    const branch = await this.branchsRepository.preload({
+      id: +id,
+      ...updateBranchDto,
+    });
+    if (!branch) {
+      throw new NotFoundException(`branch #${id} not found`);
+    }
+    return this.branchsRepository.save(branch);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} branch`;
+  async remove(id: number) {
+    const branch = await this.findOne(id);
+    return this.branchsRepository.remove(branch);
   }
 }

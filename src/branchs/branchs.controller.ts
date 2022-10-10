@@ -15,54 +15,48 @@ import { UpdateBranchDto } from './dto/update-branch.dto';
 import { Permissions } from 'src/permissions.decorator';
 import { PermissionsGuard } from 'src/permissions.guard';
 import {
-  ApiBearerAuth,
+  ApiForbiddenResponse,
   ApiOperation,
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { Branch } from './entities/branch.entity';
-@ApiBearerAuth()
 @ApiTags('branchs')
+@ApiForbiddenResponse({ description: 'Forbidden.' })
 @UseGuards(AuthGuard('jwt'), PermissionsGuard)
 @Controller('branchs')
 export class BranchsController {
   constructor(private readonly branchsService: BranchsService) {}
 
   @Post()
-  @ApiOperation({
-    summary: 'Create branch',
-  })
-  @ApiResponse({ status: 403, description: 'Forbidden.' })
+  @ApiOperation({ summary: 'Create branch' })
   @Permissions('create:branchs')
   create(@Body() createBranchDto: CreateBranchDto) {
     return this.branchsService.create(createBranchDto);
   }
 
   @Get()
-  @ApiResponse({
-    status: 200,
-    description: 'The List of branchs',
-    type: Branch,
-    isArray: true,
-  })
+  @ApiOperation({ summary: 'Read all branchs' })
   @Permissions('read:branchs')
   findAll() {
     return this.branchsService.findAll();
   }
 
   @Get(':id')
+  @ApiOperation({ summary: 'read branch' })
   @Permissions('read:branchs')
   findOne(@Param('id') id: string) {
     return this.branchsService.findOne(+id);
   }
 
   @Patch(':id')
+  @ApiOperation({ summary: 'Update branch' })
   @Permissions('update:branchs')
   update(@Param('id') id: string, @Body() updateBranchDto: UpdateBranchDto) {
     return this.branchsService.update(+id, updateBranchDto);
   }
 
   @Delete(':id')
+  @ApiOperation({ summary: 'Delete branch' })
   @Permissions('delete:branchs')
   remove(@Param('id') id: string) {
     return this.branchsService.remove(+id);
