@@ -45,15 +45,18 @@ to run the application with enviroments variable configuration you must create a
 #### variable example
 
 ```bash
-PORT=
-DB_HOST=
-DB_PORT=
-DB_USERNAME=
-DB_PASSWORD=
-DB_DATABASE=
-PGADMIN_DEFAULT_EMAIL=
-PGADMIN_DEFAULT_PASSWORD=
-PGADMIN_PORT=
+ PORT=
+ DB_HOST=
+ DB_PORT=
+ DB_USERNAME=
+ DB_PASSWORD=
+ DB_DATABASE=
+ PGADMIN_DEFAULT_EMAIL=
+ PGADMIN_DEFAULT_PASSWORD=
+ PGADMIN_PORT=
+ AUTH0_ISSUER_URL=
+ AUTH0_AUDIENCE=
+
 ```
 
 ## Stay in touch
